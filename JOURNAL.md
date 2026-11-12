@@ -21,3 +21,4 @@ Une entrée par session, la plus récente en bas.
 - Piège : `node --test <dossier>` échoue sous Node 24 ; passer un motif `"…/test/*.test.js"`.
 - Réflexe « Tool first » ajouté aux règles : regarder les skills installés, puis find-skills, avant
   une tâche spécialisée ; proposer en une ligne ou se taire.
+- Installation : marketplace locale ajoutée, `psy-kit@psy` installé (scope user), identité git déclarée, autres kits de session désactivés dans ce dépôt par un fichier local non suivi.

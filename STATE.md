@@ -1,17 +1,15 @@
 # State — psy-kit
 
-**La v0.1.0 est écrite et testée (9 tests), pas encore installée. Prochaine étape : l'installer sur cette machine, puis s'en servir pour la plateforme Psyklub.**
+**La v0.1.0 est installée sur cette machine (marketplace locale `psy`, scope user). Reste à la voir tourner dans une vraie session, puis à s'en servir pour la plateforme Psyklub.**
 
 ## install
 Updated: 2026-11-12
 
-Le kit existe dans ce dossier ; Claude Code ne le charge pas encore.
+Installé et actif ; identité git attendue déclarée dans `~/.claude/psy-kit/config.json` ; les autres
+kits de session sont désactivés dans ce dépôt par `.claude/settings.local.json` (non suivi).
 
 ### Next steps
-1. Ajouter la marketplace locale et installer `psy-kit@psy` (voir README, section Install).
-2. Écrire `~/.claude/psy-kit/config.json` avec l'identité git attendue.
-3. Désactiver les autres kits de session dans ce dépôt via `.claude/settings.local.json`.
-4. Ouvrir une session ici et vérifier que le hook donne bien les règles et cet état.
+1. Ouvrir une nouvelle session dans ce dossier et vérifier que Claude reçoit les règles et cet état, puis essayer `start-session` et `end-session` sur un petit sujet.
 
 ## platform
 Updated: 2026-11-12
