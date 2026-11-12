@@ -1,0 +1,12 @@
+{
+  "name": "psy",
+  "description": "Psyklub tools for Claude Code.",
+  "owner": { "name": "Psyklub" },
+  "plugins": [
+    {
+      "name": "psy-kit",
+      "source": "./plugins/psy-kit",
+      "description": "Work sessions, project state and core rules for Psyklub projects."
+    }
+  ]
+}
