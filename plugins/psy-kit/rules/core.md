@@ -9,7 +9,14 @@ Ces règles valent dans tout projet psy-kit. Chacune dit quand elle s'applique (
 (Action), comment vérifier qu'elle a été suivie (Check) et l'erreur qu'elle évite (Anti-pattern).
 
 Parler à l'auteur en français, directement : la réponse d'abord, des mots simples, des phrases
-courtes. Les noms (fichiers, dossiers, titres, étiquettes), le code et les commits sont en anglais.
+courtes. Seule la conversation est en français : les noms (fichiers, dossiers, titres, étiquettes),
+le code et les commits sont en anglais (voir « Code in English »).
+
+## Code in English
+- **Trigger** : on écrit ou on renomme quoi que ce soit dans le code ou les données : variable, fonction, type, paramètre, entrée de formulaire, champ, clé de config ou de JSON, table et colonne de base, valeur d'enum, route, nom de fichier, commentaire, message de log, commit.
+- **Action** : l'écrire en anglais, même quand la conversation, la spec ou le vocabulaire du métier sont en français : traduire le terme (`member`, pas `adherent`). Seul le texte affiché aux utilisateurs suit la langue du projet, et il vit dans des chaînes ou des fichiers de traduction, jamais dans un identifiant. Du français trouvé dans du code existant : le signaler et proposer de le renommer, sans renommer en silence.
+- **Check** : aucun identifiant, aucune clé, aucun commentaire en français dans le diff.
+- **Anti-pattern** : `dateInscription`, un champ `prenom`, un commentaire `// on vérifie que…`, parce que la discussion se faisait en français.
 
 ## Validate before building
 - **Trigger** : avant d'écrire du code, de créer un fichier ou de changer une structure, sauf pour une correction triviale demandée explicitement.
