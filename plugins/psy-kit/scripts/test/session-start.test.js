@@ -31,7 +31,7 @@ function runHook(part, dir, env = {}) {
 
 test('a project without STATE.md gets nothing', () => {
   const dir = tempProject({ 'README.md': '# x' });
-  for (const part of ['rules', 'profiles', 'state']) assert.strictEqual(runHook(part, dir), '');
+  for (const part of ['rules', 'exchange', 'profiles', 'state']) assert.strictEqual(runHook(part, dir), '');
 });
 
 test('the rules part carries the core rules as SessionStart context', () => {
@@ -40,6 +40,16 @@ test('the rules part carries the core rules as SessionStart context', () => {
   assert.strictEqual(out.hookSpecificOutput.hookEventName, 'SessionStart');
   assert.match(out.hookSpecificOutput.additionalContext, /Validate before building/);
   assert.doesNotMatch(out.hookSpecificOutput.additionalContext, /^---/m, 'frontmatter is stripped');
+});
+
+test('the exchange part carries the shape of messages to the author, on its own', () => {
+  const dir = tempProject({ 'STATE.md': '# State' });
+  const out = JSON.parse(runHook('exchange', dir));
+  assert.strictEqual(out.hookSpecificOutput.hookEventName, 'SessionStart');
+  assert.match(out.hookSpecificOutput.additionalContext, /Answer first, short/);
+  assert.match(out.hookSpecificOutput.additionalContext, /One question, one idea/);
+  assert.doesNotMatch(out.hookSpecificOutput.additionalContext, /^---/m, 'frontmatter is stripped');
+  assert.doesNotMatch(JSON.parse(runHook('rules', dir)).hookSpecificOutput.additionalContext, /Answer first, short/);
 });
 
 test('the state part carries STATE.md and only the last journal entry', () => {
@@ -89,7 +99,7 @@ test('a wrong git identity is flagged, the right one is silent', (t) => {
 
 test('every part stays under the per-output cap, even with a huge STATE.md', () => {
   const dir = tempProject({ 'STATE.md': 'x'.repeat(50000), 'JOURNAL.md': `## big\n${'y'.repeat(50000)}` });
-  for (const part of ['rules', 'profiles', 'state']) assert.ok(buildPart(part, dir, {}).length <= PART_LIMIT + 200);
+  for (const part of ['rules', 'exchange', 'profiles', 'state']) assert.ok(buildPart(part, dir, {}).length <= PART_LIMIT + 200);
 });
 
 test('clipMiddle keeps the head and the tail', () => {

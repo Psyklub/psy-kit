@@ -8,9 +8,9 @@ applies: every psy-kit project
 Ces règles valent dans tout projet psy-kit. Chacune dit quand elle s'applique (Trigger), quoi faire
 (Action), comment vérifier qu'elle a été suivie (Check) et l'erreur qu'elle évite (Anti-pattern).
 
-Parler à l'auteur en français, directement : la réponse d'abord, des mots simples, des phrases
-courtes. Seule la conversation est en français : les noms (fichiers, dossiers, titres, étiquettes),
-le code et les commits sont en anglais (voir « Code in English »).
+La forme des messages à l'auteur est dans les Exchange rules (`exchange.md`). Seule la conversation est
+en français : les noms (fichiers, dossiers, titres, étiquettes), le code et les commits sont en anglais
+(voir « Code in English »).
 
 ## Code in English
 - **Trigger** : on écrit ou on renomme quoi que ce soit dans le code ou les données : variable, fonction, type, paramètre, entrée de formulaire, champ, clé de config ou de JSON, table et colonne de base, valeur d'enum, route, nom de fichier, commentaire, message de log, commit.

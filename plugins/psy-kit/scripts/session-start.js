@@ -7,6 +7,7 @@
 // output stays under the per-output context cap:
 //
 //   node session-start.js rules     -> the core rules
+//   node session-start.js exchange  -> the exchange rules (the shape of every message to the author)
 //   node session-start.js profiles  -> the rules of the profiles the project uses
 //   node session-start.js state     -> STATE.md, the last JOURNAL.md entry,
 //                                      an open session, a git identity warning
@@ -146,6 +147,18 @@ function rulesPart() {
   );
 }
 
+function exchangePart() {
+  const text = readText(path.join(RULES_DIR, 'exchange.md'));
+  if (!text) return '';
+  return clipHead(
+    `# psy-kit: exchange rules (the shape of every message to the author, follow them without announcing them)
+
+${stripFrontmatter(text)}`,
+    PART_LIMIT,
+    path.join(RULES_DIR, 'exchange.md'),
+  );
+}
+
 function profilesPart(dir) {
   const blocks = [];
   for (const profile of detectProfiles(dir)) {
@@ -204,6 +217,7 @@ function statePart(dir, config) {
 function buildPart(part, dir, config) {
   if (!isPsyProject(dir)) return '';
   if (part === 'rules') return rulesPart();
+  if (part === 'exchange') return exchangePart();
   if (part === 'profiles') return profilesPart(dir);
   if (part === 'state') return statePart(dir, config);
   return '';

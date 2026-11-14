@@ -21,7 +21,7 @@ méthode (STATE.md, JOURNAL.md, docs/decisions/).
   dilue les autres : garder `rules/core.md` court.
 - **Every hook output under 9,000 characters.** Claude Code coupe chaque sortie de hook à 10 000
   caractères [source: code.claude.com/docs/en/hooks.md]. Le script découpe ses sorties en parties
-  (`rules`, `profiles`, `state`) ; un test le vérifie.
+  (`rules`, `exchange`, `profiles`, `state`) ; un test le vérifie.
 - **Hooks never break a session.** Toute erreur est avalée, le code de sortie est toujours 0, et rien
   ne sort hors d'un projet psy-kit.
 
@@ -43,8 +43,8 @@ Le plugin est lu sur place depuis ce dossier : après une modification, `/reload
 | Chemin | Rôle |
 |---|---|
 | `.claude-plugin/marketplace.json` | la marketplace locale `psy` |
-| `plugins/psy-kit/hooks/hooks.json` | les trois sorties du hook d'ouverture |
+| `plugins/psy-kit/hooks/hooks.json` | les quatre sorties du hook d'ouverture |
 | `plugins/psy-kit/scripts/session-start.js` | le hook d'ouverture ; tests dans `scripts/test/` |
-| `plugins/psy-kit/rules/` | `core.md` (toujours), un fichier par profil (`cloudflare.md`) |
+| `plugins/psy-kit/rules/` | `core.md` et `exchange.md` (toujours), un fichier par profil (`cloudflare.md`) |
 | `plugins/psy-kit/skills/` | start-session, end-session, new-project, remember |
 | `plugins/psy-kit/templates/` | modèles de CLAUDE.md, STATE.md, JOURNAL.md, décision |

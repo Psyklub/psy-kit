@@ -1,6 +1,6 @@
 {
   "name": "psy-kit",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Work sessions, project state and core rules for Psyklub projects.",
   "author": { "name": "Psyklub" }
 }
