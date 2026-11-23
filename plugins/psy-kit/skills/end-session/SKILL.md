@@ -46,6 +46,11 @@ lancer sans oui.
 Passer aussi en revue les corrections que l'auteur a faites pendant la session sur la façon de
 travailler : celles qui doivent changer les sessions suivantes deviennent des candidates.
 
+- **Features** : si le CLAUDE.md du projet déclare un registre de features, lister les features
+  apparues (Proto ou Final) ou passées de Proto à Final pendant la session, d'après le diff et le
+  journal. Proposer pour chacune l'entrée ou la date à ajouter (date de la session, commit d'étape
+  quand il existe) dans le récapitulatif ; ne l'écrire qu'après le oui de l'auteur.
+
 ### 5. One recap, one question
 Présenter brièvement le bilan (étape 3) et les brouillons (étape 4), puis une seule question :
 tout écrire, choisir, ou ajuster.
