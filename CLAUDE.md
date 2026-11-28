@@ -45,6 +45,6 @@ Le plugin est lu sur place depuis ce dossier : après une modification, `/reload
 | `.claude-plugin/marketplace.json` | la marketplace locale `psy` |
 | `plugins/psy-kit/hooks/hooks.json` | les quatre sorties du hook d'ouverture |
 | `plugins/psy-kit/scripts/session-start.js` | le hook d'ouverture ; tests dans `scripts/test/` |
-| `plugins/psy-kit/rules/` | `core.md` et `exchange.md` (toujours), un fichier par profil (`cloudflare.md`) |
+| `plugins/psy-kit/rules/` | `core.md` et `exchange.md` (toujours), un fichier par profil : `cloudflare.md` (fichier wrangler), `notion.md` (section `## Notion` du CLAUDE.md du projet) |
 | `plugins/psy-kit/skills/` | start-session, end-session, new-project, remember |
 | `plugins/psy-kit/templates/` | modèles de CLAUDE.md, STATE.md, JOURNAL.md, décision |

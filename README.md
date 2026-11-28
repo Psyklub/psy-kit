@@ -5,7 +5,7 @@ Le kit de travail de Psyklub pour Claude Code : sessions, état du projet, journ
 ## What it does
 
 - **À l'ouverture d'une session**, un hook donne à Claude les règles de base, les règles du profil du
-  projet (Cloudflare…), `STATE.md`, la dernière entrée de `JOURNAL.md`, une éventuelle session restée
+  projet (Cloudflare, Notion), `STATE.md`, la dernière entrée de `JOURNAL.md`, une éventuelle session restée
   ouverte et un écart d'identité git. Il ne dit rien hors d'un projet psy-kit (un projet sans
   `STATE.md` à la racine).
 - **Skills** :
@@ -27,14 +27,24 @@ Le kit de travail de Psyklub pour Claude Code : sessions, état du projet, journ
 | `docs/decisions/` | les choix faits, avec les options écartées |
 | `.session.json` | la session ouverte (ignoré par git) |
 
+## Notion
+
+Un projet dont le CLAUDE.md a une section `## Notion` reçoit le profil Notion : design validé, idées
+et tâches dans Notion (📝 Notes → 💡 Ideas → page officielle, base Tasks), état technique dans le
+dépôt. La méthode complète est dans `plugins/psy-kit/rules/notion.md`. Il faut le connecteur Notion
+branché dans Claude.
+
 ## Install
 
-Marketplace locale, lue sur place :
+Depuis GitHub :
 
 ```
-claude plugin marketplace add C:/Users/honor/Documents/PSYKLUB/psy-kit
+claude plugin marketplace add Psyklub/psy-kit
 claude plugin install psy-kit@psy
 ```
+
+Pour développer le kit, ajouter plutôt le dossier cloné comme marketplace locale, lue sur place :
+`claude plugin marketplace add <chemin du clone>`.
 
 L'identité git attendue se déclare dans `~/.claude/psy-kit/config.json` :
 

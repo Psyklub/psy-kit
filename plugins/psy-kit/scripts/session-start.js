@@ -33,6 +33,11 @@ const PROFILES = {
   cloudflare: ['wrangler.toml', 'wrangler.json', 'wrangler.jsonc'],
 };
 
+// Profile name -> test on the project's CLAUDE.md: on when the project says so itself.
+const DECLARED_PROFILES = {
+  notion: (claudeMd) => /^## Notion\s*$/m.test(claudeMd),
+};
+
 const SKIPPED_DIRS = new Set(['node_modules', '.git', '.wrangler', 'dist', 'build', 'Library', 'Temp']);
 
 function readText(file) {
@@ -114,6 +119,10 @@ function detectProfiles(dir) {
   }
   for (const [profile, markers] of Object.entries(PROFILES)) {
     if (candidates.some((d) => markers.some((m) => fs.existsSync(path.join(d, m))))) found.push(profile);
+  }
+  const claudeMd = readText(path.join(dir, 'CLAUDE.md')) || '';
+  for (const [profile, declared] of Object.entries(DECLARED_PROFILES)) {
+    if (declared(claudeMd)) found.push(profile);
   }
   return found;
 }

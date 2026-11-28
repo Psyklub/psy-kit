@@ -17,3 +17,7 @@
 ## Map
 
 {Les dossiers importants et leur rôle.}
+
+## Notion
+
+{Seulement si le design, les idées et les tâches vivent dans Notion ; sinon retirer la section. Ce titre active le profil Notion. Donner le chemin de la page racine du projet, la liste des sujets et la base Tasks.}

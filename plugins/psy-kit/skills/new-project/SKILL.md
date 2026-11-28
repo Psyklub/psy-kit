@@ -15,15 +15,18 @@ lire d'abord l'existant (CLAUDE.md, README, docs, structure) et proposer ce que 
 reprendra. On ne déplace ni ne supprime rien sans oui.
 
 ### 2. Ask what is missing
-Nom, description en une phrase, stack (TypeScript / Cloudflare, Unity, jeu de société, autre).
-Ne pas redemander ce qui est déjà connu.
+Nom, description en une phrase, stack (TypeScript / Cloudflare, Unity, jeu de société, autre), et si
+le design, les idées et les tâches vivront dans Notion. Ne pas redemander ce qui est déjà connu.
 
 ### 3. Show the plan
 La liste exacte des fichiers à créer ou modifier, puis attendre le oui.
 
 ### 4. Create the files
 À partir des modèles de `${CLAUDE_PLUGIN_ROOT}/templates/`, remplis avec ce qu'on sait déjà :
-- `CLAUDE.md` : description, stack et commandes, carte des dossiers.
+- `CLAUDE.md` : description, stack et commandes, carte des dossiers. Avec Notion, la section
+  `## Notion` (page racine, sujets, base Tasks), qui active le profil Notion ; sans Notion, la retirer.
+- Avec Notion et le connecteur branché : proposer de créer la structure du profil Notion (page racine,
+  📝 Notes avec Inbox, 💡 Ideas, une page par sujet, base Tasks, page « (brouillon) »). Créer après oui.
 - `STATE.md` : un premier sujet et sa première étape.
 - `JOURNAL.md` : première entrée datée d'aujourd'hui, la création du projet.
 - `docs/decisions/` : avec un `.gitkeep` ; une première décision seulement si un choix de fond a été fait.

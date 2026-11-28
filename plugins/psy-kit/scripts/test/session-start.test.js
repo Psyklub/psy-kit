@@ -83,6 +83,18 @@ test('profiles are detected at the root and one level down, never in node_module
   assert.match(text, /Production needs a yes/);
 });
 
+test('the notion profile is on only when CLAUDE.md has a "## Notion" section', () => {
+  assert.deepStrictEqual(detectProfiles(tempProject({ 'CLAUDE.md': '# P\n\n## Notion\n\nRoot: Apps / P\n' })), ['notion']);
+  assert.deepStrictEqual(detectProfiles(tempProject({ 'CLAUDE.md': '# P\n\nWe read Notion sometimes.\n' })), []);
+  assert.deepStrictEqual(detectProfiles(tempProject({ 'CLAUDE.md': '## Notion\n', 'wrangler.toml': '' })), ['cloudflare', 'notion']);
+  const dir = tempProject({ 'STATE.md': '#', 'CLAUDE.md': '## Notion\n', 'wrangler.toml': '' });
+  const text = buildPart('profiles', dir, {});
+  assert.match(text, /Read the subject before coding/);
+  assert.match(text, /Production needs a yes/);
+  assert.ok(text.length <= PART_LIMIT, 'both profiles fit in one part');
+  assert.doesNotMatch(text, /\[\.\.\. cut here/);
+});
+
 test('a wrong git identity is flagged, the right one is silent', (t) => {
   const dir = tempProject({ 'STATE.md': '# State' });
   try {
